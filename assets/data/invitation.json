@@ -120,7 +120,7 @@
       "attendancePlaceholder": "¿Podrás acompañarme?",
       "attendanceOptions": ["Sí asistiré", "No podré asistir"],
       "messagePlaceholder": "Mensaje",
-      "buttonText": "Confirmar por WhatsApp"
+      "buttonText": "Confirmar asistencia"
     },
     "note": "Agradezco confirmar antes del <strong>11 de marzo de 2026</strong>.",
     "success": "¡Gracias por confirmar!"

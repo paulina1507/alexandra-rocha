@@ -6,10 +6,11 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 100;
-  background-color: #ffffff; /* SIEMPRE blanco */
+  z-index: 4000;
+  background-color: #ffffff;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
+
 
 .header.scrolled {
   background-color: var(--bg-main);
@@ -46,10 +47,12 @@
   font-size: var(--fs-small);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #7b69a8; /* lavanda como en la imagen */
+  color: #7b69a8;
+  /* lavanda como en la imagen */
   font-weight: 100;
   position: relative;
 }
+
 .nav a::after {
   content: "";
   position: absolute;
@@ -68,12 +71,10 @@
 /* =========================
    BOTÓN MOBILE
    ========================= */
+
 .menu-toggle {
-  display: block;
-  position: fixed;
-  top: 18px;
-  right: 20px;
-  z-index: 2000;
+  display: none;
+  /* 👈 oculto por defecto en desktop */
 }
 
 .mobile-menu a {
@@ -86,39 +87,61 @@
   opacity: 0.7;
 }
 
-.mobile-nav {
-  display: none;
-}
-
 @media (max-width: 768px) {
+
   .nav {
     display: none !important;
   }
-  body.menu-open .menu-toggle {
-    font-size: 2rem;
+
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    top: 16px;
+    right: 16px;
+
+    width: 52px;
+    height: 52px;
+
+    font-size: 30px;
     font-weight: 600;
+
+    background: #ffffff;
+    border: none;
+
+    color: #7b69a8;
+
+    cursor: pointer;
+    z-index: 3000;
+  }
+
+  body.menu-open .menu-toggle {
     color: #000;
   }
-  body.menu-open #mobileNav {
+
+  #mobileNav {
     position: fixed;
     inset: 0;
     background: var(--bg-main);
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2rem;
 
-    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.35s ease;
 
-    padding-top: 80px; /* 👈 espacio para el botón */
+    z-index: 2000;
   }
 
-  .menu-toggle {
-    display: block;
-    position: fixed; /* 👈 CLAVE */
-    top: 20px;
-    right: 20px;
-    z-index: 2000; /* 👈 más alto que el nav */
+  body.menu-open #mobileNav {
+    opacity: 1;
+    pointer-events: auto;
   }
+
 }
