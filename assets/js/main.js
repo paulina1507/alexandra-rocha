@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function initScrollReveal() {
     const elements = document.querySelectorAll(
-      ".reveal-title, .reveal-left, .reveal-right"
+      ".reveal-title, .reveal-left, .reveal-right",
     );
     if (!elements.length) return;
 
@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     elements.forEach((el) => observer.observe(el));
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       },
-      { threshold: 0.25 }
+      { threshold: 0.25 },
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     observer.observe(timeline);
@@ -239,20 +239,53 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =====================================================
-   NAV MOBILE TOGGLE (REAL)
+   NAV MOBILE (MERGE + TOGGLE + CLOSE) – STABLE
    ===================================================== */
 
   const menuToggle = document.getElementById("menuToggle");
+  const mobileNav = document.getElementById("mobileNav");
 
-  if (menuToggle) {
-    menuToggle.addEventListener("click", () => {
-      document.body.classList.toggle("menu-open");
-    });
+  function buildMobileNav() {
+    if (!mobileNav) return;
 
-    document.querySelectorAll("#navLeft a, #navRight a").forEach((link) => {
-      link.addEventListener("click", () => {
-        document.body.classList.remove("menu-open");
-      });
+    const leftLinks = document.querySelectorAll("#navLeft a");
+    const rightLinks = document.querySelectorAll("#navRight a");
+
+    mobileNav.innerHTML = "";
+    [...leftLinks, ...rightLinks].forEach((a) => {
+      mobileNav.appendChild(a.cloneNode(true));
     });
   }
+
+  function setMenu(open) {
+    document.body.classList.toggle("menu-open", open);
+    if (menuToggle) menuToggle.textContent = open ? "✕" : "☰";
+  }
+
+  if (menuToggle) {
+    menuToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setMenu(!document.body.classList.contains("menu-open"));
+    });
+  }
+
+  /* ✅ Construir el menú móvil cuando el data-loader ya terminó */
+  document.addEventListener("nav:ready", () => {
+    buildMobileNav();
+  });
+
+  /* ✅ Cerrar al tocar cualquier link del menú móvil (delegación) */
+  if (mobileNav) {
+    mobileNav.addEventListener("click", (e) => {
+      const a = e.target.closest("a");
+      if (!a) return;
+      setMenu(false);
+    });
+  }
+
+  /* ✅ Escape cierra */
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setMenu(false);
+  });
 });

@@ -1,59 +1,161 @@
 /* =====================================================
-   HERO – PLANTILLA 1 (EDITORIAL / CINEMATOGRÁFICO)
+   HERO – POSTER 18 AÑOS (USANDO VARIABLES)
    ===================================================== */
 
 .hero {
   position: relative;
   height: 100vh;
-  margin-top: 90px;
-  /* header fijo */
+  margin-top: 40px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== PARTICULAS ROSA GLAM ===== */
+
+.hero--poster {
+  position: relative;
   overflow: hidden;
 }
 
-/* =========================
-   BACKGROUND
-   ========================= */
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background-image: url("../img/hero.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  /* estado inicial */
-  opacity: 0;
-  filter: blur(10px);
-  transform: scale(1.08);
-
-  transition:
-    opacity 1.4s ease,
-    filter 1.4s ease;
+.hero--poster .hero-pretitle {
+  font-size: 0.65rem;
+  letter-spacing: 0.6em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
 }
 
-/* =========================
-   OVERLAY
-   ========================= */
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-
-  opacity: 0;
-  transition: opacity 1.2s ease;
+.hero--poster .hero-subtitle {
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 0.6rem;
 }
 
-/* =========================
-   CONTENT
-   ========================= */
+.hero--poster::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
 
-.hero-content {
+  background-image:
+    radial-gradient(circle, rgba(232, 164, 196, 0.9) 4px, transparent 6px),
+    radial-gradient(circle, rgba(255, 182, 193, 0.8) 3px, transparent 5px),
+    radial-gradient(circle, rgba(255, 105, 180, 0.6) 2px, transparent 4px);
+
+  background-size:
+    120px 120px,
+    180px 180px,
+    250px 250px;
+  background-position:
+    0 0,
+    60px 60px,
+    100px 100px;
+
+  animation: glitterFast 12s linear infinite;
+  opacity: 0.9;
+}
+
+@keyframes glitterFast {
+  0% {
+    background-position:
+      0 0,
+      60px 60px,
+      100px 100px;
+  }
+  100% {
+    background-position:
+      0 -300px,
+      60px -400px,
+      100px -500px;
+  }
+}
+
+/* Apagar modo cinematográfico */
+.hero--poster .hero-bg,
+.hero--poster .hero-overlay {
+  display: none;
+}
+
+/* ===== Globos ===== */
+
+.hero-deco {
+  position: absolute;
+  width: 260px;
+  opacity: 0.95;
+  filter: drop-shadow(var(--shadow-light));
+  z-index: 1;
+}
+
+.hero-deco-left {
+  left: -20px;
+  bottom: 5%;
+  top: auto;
+}
+
+.hero-deco-right {
+  right: -20px;
+  top: 8%;
+  bottom: auto;
+}
+
+/* ===== Contenido central ===== */
+
+/* ===== 18 PNG ===== */
+
+.hero-age {
+  display: block;
+  width: 180px;
+  margin: 0.2rem auto -0.2rem auto;
+  filter: drop-shadow(0 30px 60px rgba(232, 164, 196, 0.25));
+}
+
+/* ===== Pretitle ===== */
+.hero--poster .hero-pretitle {
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.6em;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* ===== Nombre ===== */
+
+.hero--poster .hero-names {
+  font-family: var(--font-script);
+  font-size: clamp(3rem, 6vw, 4rem);
+  margin-bottom: 0.6rem;
+  color: var(--text-primary);
+  text-shadow: none;
+  line-height: 1.1;
+}
+/* ===== Fecha ===== */
+
+.hero-date-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  font-family: var(--font-title);
+  color: var(--text-primary);
+}
+
+.hero-date-line strong {
+  font-size: 2.2rem;
+}
+
+.hero-date-line span {
+  font-size: var(--fs-small);
+  letter-spacing: 0.15em;
+}
+
+.hero-content--poster {
   position: relative;
-  z-index: 2;
-  height: 100%;
-  padding: 0 1.2rem;
 
   display: flex;
   flex-direction: column;
@@ -61,264 +163,127 @@
   justify-content: center;
 
   text-align: center;
-  color: #ffffff;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+
+  padding: 2rem 1rem;
+
+  background: transparent;
+  box-shadow: none;
 }
 
-/* =========================
-   ELEMENTOS – ESTADO INICIAL
-   ========================= */
+/* ===== Countdown ===== */
 
-.hero-pretitle,
-.hero-names,
-.hero-divider,
-.hero-countdown,
-.hero-scroll {
-  opacity: 0;
-  transform: translateY(22px);
-  filter: blur(4px);
+.hero--poster .hero-countdown {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.4rem;
+  justify-content: center;
 }
 
-/* =========================
-   PRETITLE
-   ========================= */
-
-.hero-pretitle {
-  font-family: var(--font-base);
-  font-size: 0.75rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  margin-bottom: 0.6rem;
-  font-weight: 500;
-  color: #ffffff;
-}
-
-/* =========================
-   NAMES
-   ========================= */
-
-.hero-names {
-  font-family: var(--font-script);
-  font-size: clamp(3.6rem, 8vw, 5.4rem);
-  font-weight: 400;
-  line-height: 1;
-  color: #f3efe9;
-}
-
-.hero-names span {
-  font-family: var(--font-title);
-  font-size: 1.6rem;
-  margin: 0 0.3rem;
-}
-
-/* =========================
-   DIVIDER
-   ========================= */
-
-.hero-divider {
-  width: 48px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.6);
-  margin: 1.1rem auto;
-}
-
-/* =========================
-   COUNTDOWN
-   ========================= */
-
-.hero-countdown{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:1rem;
-
-  padding: 1.2rem 1.8rem;
+.hero--poster .hero-countdown div {
+  padding: 1rem 1.2rem;
+  min-width: 90px;
   border-radius: 24px;
 
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, #000000, #2b2b2b);
 
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.3),
-    0 20px 50px rgba(0,0,0,0.35);
+    0 20px 40px rgba(0, 0, 0, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
 
-  margin-top:1.6rem;
-
-  width: fit-content;
-  margin-left:auto;
-  margin-right:auto;
+  transition: transform 0.3s ease;
 }
 
-
-.hero-countdown div {
-  padding: .8rem 1rem;
-  border-radius: 14px;
-
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(6px);
-
-  box-shadow:
-    0 6px 20px rgba(0, 0, 0, 0.25);
-
-  min-width: 68px;
-}
-
-.hero-countdown strong {
-  display: block;
-  font-family: var(--font-title);
-  font-size: 1.3rem;
-  font-weight: 600;
-  transition: transform .3s ease, opacity .3s ease;
-}
-
-.hero-countdown strong.updating{
+.hero--poster .hero-countdown div:hover {
   transform: translateY(-4px);
-  opacity:.7;
 }
 
-.hero-countdown span {
-  font-family: var(--font-base);
-  font-size: 0.8rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  opacity: 0.9;
+.hero--poster .hero-countdown strong {
+  font-size: 1.9rem; /* 👈 tamaño balanceado */
+  font-weight: 600;
+  color: #ffffff;
 }
 
-@media (max-width:480px){
+.hero--poster .hero-countdown span {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.6);
+}
 
-  .hero-countdown{
-    flex-wrap: wrap;
-    justify-content:center;
-    gap:.6rem;
-    padding: .8rem 1rem;     
-    border-radius: 18px;    
+@keyframes shimmer {
+  0% {
+    left: -100%;
   }
-
-  .hero-countdown div{
-    min-width:52px;
-    padding: .5rem .6rem;   
-    border-radius: 12px;
-  }
-
-  .hero-countdown strong{
-    font-size: 1rem;        
-  }
-
-  .hero-countdown span{
-    font-size: .65rem;      
-    letter-spacing: .12em;
+  100% {
+    left: 100%;
   }
 }
 
-/* =========================
-   SCROLL INDICATOR
-   ========================= */
-
-.hero-scroll {
-  position: absolute;
-  bottom: 1.6rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
-}
-
-.hero-scroll span {
-  display: block;
-  width: 18px;
-  height: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 12px;
-  position: relative;
-}
-
-.hero-scroll span::after {
+.hero--poster::after {
   content: "";
   position: absolute;
-  top: 6px;
-  left: 50%;
-  width: 4px;
-  height: 4px;
-  background: #ffffff;
-  border-radius: 50%;
-  transform: translateX(-50%);
-  animation: scroll-dot 1.8s infinite;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.8) 1px,
+    transparent 2px
+  );
+
+  background-size: 250px 250px;
+
+  animation: sparklePulse 6s ease-in-out infinite alternate;
+  opacity: 0.2;
 }
 
-/* =========================
-   ACTIVACIÓN (PLANTILLA 1)
-   ========================= */
-
-body.content-ready .hero-bg {
-  opacity: 1;
-  filter: blur(0);
-}
-
-body.content-ready .hero-overlay {
-  opacity: 1;
-}
-
-body.content-ready .hero-pretitle {
-  animation: heroFadeUp 1s ease forwards;
-}
-
-body.content-ready .hero-names {
-  animation: heroFadeUp 1.3s ease forwards;
-}
-
-body.content-ready .hero-divider {
-  animation: heroFadeUp 1.2s ease forwards;
-}
-
-body.content-ready .hero-countdown {
-  animation: heroFadeUp 1.5s ease forwards;
-  animation-delay: 0.15s;
-}
-
-body.content-ready .hero-scroll {
-  animation: heroFadeUp 1.6s ease forwards;
-  animation-delay: 0.35s;
-}
-
-/* =========================
-   KEYFRAMES
-   ========================= */
-
-@keyframes heroFadeUp {
+@keyframes sparklePulse {
   0% {
-    opacity: 0;
-    transform: translateY(22px);
-    filter: blur(4px);
+    opacity: 0.1;
   }
-
   100% {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
+    opacity: 0.35;
   }
 }
 
-@keyframes scroll-dot {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, 0);
+/* ===== Responsive ===== */
+
+@media (max-width: 760px) {
+  .hero-deco {
+    width: 230px;
+    opacity: 0.85;
   }
 
-  40% {
-    opacity: 1;
+  .hero-deco-left {
+    bottom: -5%;
+    left: -80px;
   }
 
-  80% {
-    opacity: 0;
-    transform: translate(-50%, 12px);
+  .hero-deco-right {
+    top: 7%;
+    right: -105px;
   }
-}
 
-/* =========================
-   DESKTOP
-   ========================= */
+  .hero-content--poster {
+    padding: 2rem 1.3rem;
+    border-radius: var(--radius-md);
+  }
 
-@media (min-width: 768px) {
-  .hero-countdown strong {
-    font-size: 1.6rem;
+  .hero--poster .hero-countdown {
+    gap: 0.7rem;
+  }
+
+  .hero--poster .hero-countdown div {
+    min-width: 65px;
+    padding: 0.7rem 0.6rem;
+    border-radius: 20px;
+  }
+
+  .hero--poster .hero-countdown strong {
+    font-size: 1rem;
+  }
+
+  .hero--poster .hero-countdown span {
+    font-size: 0.7rem;
   }
 }

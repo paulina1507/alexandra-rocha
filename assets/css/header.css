@@ -7,8 +7,8 @@
   top: 0;
   width: 100%;
   z-index: 100;
-  background-color: #ffffff;   /* SIEMPRE blanco */
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  background-color: #ffffff; /* SIEMPRE blanco */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
 .header.scrolled {
@@ -51,7 +51,7 @@
   position: relative;
 }
 .nav a::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: -8px;
@@ -65,16 +65,15 @@
   width: 100%;
 }
 
-
 /* =========================
    BOTÓN MOBILE
    ========================= */
 .menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
+  display: block;
+  position: fixed;
+  top: 18px;
+  right: 20px;
+  z-index: 2000;
 }
 
 .mobile-menu a {
@@ -83,41 +82,43 @@
   color: var(--color-primary);
 }
 
-
-
 .mobile-close:hover {
   opacity: 0.7;
 }
 
-/* =========================
-   NAV MOBILE (REAL)
-   ========================= */
+.mobile-nav {
+  display: none;
+}
+
 @media (max-width: 768px) {
-
   .nav {
-    display: none;
+    display: none !important;
   }
-
-  body.menu-open .nav {
+  body.menu-open .menu-toggle {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #000;
+  }
+  body.menu-open #mobileNav {
     position: fixed;
     inset: 0;
-    background-color: var(--bg-main);
+    background: var(--bg-main);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1.8rem;
+    gap: 2rem;
+
     z-index: 999;
+
+    padding-top: 80px; /* 👈 espacio para el botón */
   }
 
   .menu-toggle {
     display: block;
-    z-index: 1000;
-  }
-
-  .nav a {
-    font-size: 1.2rem;
-    font-family: var(--font-title);
-    color: var(--color-primary);
+    position: fixed; /* 👈 CLAVE */
+    top: 20px;
+    right: 20px;
+    z-index: 2000; /* 👈 más alto que el nav */
   }
 }

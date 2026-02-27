@@ -48,20 +48,22 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
 
+      /* ✅ AVISAR A MAIN.JS QUE YA EXISTEN LOS LINKS */
+      document.dispatchEvent(new CustomEvent("nav:ready"));
+
       /* =====================================================
          HERO
          ===================================================== */
 
-      const heroPretitle = document.getElementById("heroPretitle");
-      const heroNames = document.getElementById("heroNames");
-      const heroBg = document.querySelector(".hero-bg");
+      document.getElementById("heroPretitle").textContent = data.hero.pretitle;
+      document.getElementById("heroNames").textContent = data.hero.names;
 
-      if (heroPretitle) heroPretitle.innerHTML = data.hero?.pretitle || "";
-      if (heroNames) heroNames.innerHTML = data.hero?.names || "";
-      if (heroBg && data.hero?.background) {
-        heroBg.style.backgroundImage = `url(${data.hero.background})`;
+      if (data.hero.subtitle) {
+        document.getElementById("heroSubtitle").textContent =
+          data.hero.subtitle;
+      } else {
+        document.getElementById("heroSubtitle").style.display = "none";
       }
-
       /* =====================================================
    COUNTDOWN DESDE JSON
    ===================================================== */
@@ -140,7 +142,6 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="location-card reveal-zoom">
               <h3 class="location-card-title">${place.title}</h3>
               <p class="location-time">${place.time}</p>
-              <img src="${place.image}">
               <p class="location-place">${place.place}</p>
               <p class="location-address">${place.address}</p>
               <a href="${place.map}" class="btn btn-primary" target="_blank">Ver mapa</a>
@@ -276,7 +277,7 @@ document.addEventListener("DOMContentLoaded", () => {
             galleryGrid.innerHTML += `<img src="${img}">`;
           });
 
-          if (window.initGallery) {
+          if (typeof initGallery === "function") {
             initGallery();
           }
         } else if (

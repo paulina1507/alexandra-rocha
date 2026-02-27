@@ -7,32 +7,14 @@
   },
   "nav": {
     "left": [
-      {
-        "label": "Inicio",
-        "href": "#hero"
-      },
-      {
-        "label": "Presentación",
-        "href": "#presentation"
-      },
-      {
-        "label": "Ceremonia",
-        "href": "#location"
-      }
+      { "label": "Inicio", "href": "#hero" },
+      { "label": "Presentación", "href": "#presentation" },
+      { "label": "Lugar", "href": "#location" }
     ],
     "right": [
-      {
-        "label": "Programa",
-        "href": "#timeline"
-      },
-      {
-        "label": "Vestimenta",
-        "href": "#dresscode"
-      },
-      {
-        "label": "Confirmación",
-        "href": "#rsvp"
-      }
+      { "label": "Programa", "href": "#timeline" },
+      { "label": "Galería", "href": "#gallery" },
+      { "label": "Confirmación", "href": "#rsvp" }
     ]
   },
   "music": {
@@ -40,58 +22,53 @@
     "autoplay": true
   },
   "hero": {
-    "pretitle": "Cumple 18 años",
+    "pretitle": "Estás invitado a la fiesta de",
+    "subtitle": "A celebrar los",
     "names": "Alexandra Rocha",
     "date": "2026-03-14T16:00:00",
     "background": "assets/img/hero.png"
   },
   "presentation": {
-    "title": "Con la gracia de Dios",
+    "title": "Te invito a celebrar conmigo",
     "parents": [
       {
-        "names": [
-          "Alberto Rocha Alonso",
-          "Veronica Torres Sánchez"
-        ],
-        "note": "Papás"
+        "names": ["Alberto Rocha Alonso", "Veronica Torres Sánchez"],
+        "note": "Mis papás"
       }
     ],
     "padrinos": [
       {
-        "names": [
-          "Janes Garcia Machorro",
-          "María de Lourdes Sanchez Vargas"
-        ],
-        "note": "Padrinos de Bautizo"
+        "names": ["Janes Garcia Machorro", "María de Lourdes Sanchez Vargas"],
+        "note": "Mis padrinos"
       }
     ],
-    "text": "Llenos de fe y amor, presentamos ante Dios a nuestro hijo para recibir el Sacramento del Bautismo y te invitamos a acompañarnos en este momento tan especial.",
-    "icon": "assets/img/cruz.svg"
+    "text": "Hay momentos que merecen celebrarse a lo grande. Acompáñame a festejar mis 18 años en un día lleno de alegría, música y recuerdos increíbles.",
+    "icon": ""
   },
   "gratitude": {
-    "title": "Con gratitud",
-    "text": "Agradecemos a Dios y a cada uno de ustedes por acompañarnos en este día tan especial para nuestra familia."
+    "title": "Con cariño",
+    "text": "Gracias por ser parte de mi historia. Tu presencia hará este día aún más especial."
   },
   "location": {
-    "title": "Ceremonia y celebración",
+    "title": "Lugar del evento",
     "subtitle": "Fecha y ubicación",
-    "dateText": "14 · Marzo · 2026",                                                                        
+    "dateText": "14 · Marzo · 2026",
     "places": [
       {
         "title": "Ceremonia Religiosa",
         "time": "04:00 PM",
-        "image": "assets/img/ceremonia.png",
+        "image": "",
         "place": "Iglesia de Cuapiaxtla",
         "address": "Carr. Federal Puebla-Tehuacán 117, Hermosillo, 75420 Cuapiaxtla de Madero, Pue.",
         "map": "María de Lou"
       },
       {
         "title": "Celebración",
-        "time": "03:30 PM",
-        "image": "assets/img/recepcion.png",
-        "place": "Ubicado detrás de la gasolinera Servicios Turísticos Enríquez",
-        "address": "Autop. Orizaba - Puebla kilómetro 193, 75467 Guadalupe Enríquez, Pue.",
-        "map": "https://maps.app.goo.gl/y74nyLZqfAekAoND9"
+        "time": "05:00 PM",
+        "image": "",
+        "place": "Recepción",
+        "address": "Josefa Ortiz de Domínguez, Hermosillo, 75420 Cuapiaxtla de Madero, Pue.",
+        "map": "https://maps.app.goo.gl/6CCwaTHVBdEymvLY69"
       }
     ]
   },
@@ -99,30 +76,21 @@
     "title": "Programa",
     "items": [
       {
-        "time": "02:00 PM",
-        "text": "Celebración del Sacramento del Bautismo",
+        "time": "04:00 PM",
+        "text": "Llegada de invitados",
         "icon": "assets/img/3.svg"
       },
+      { "time": "06:00 PM", "text": "Comida", "icon": "assets/img/6.svg" },
       {
-        "time": "03:00 PM",
-        "text": "Bendición y fotografías",
-        "icon": "assets/img/4.svg"
-      },
-      {
-        "time": "03:30 PM",
-        "text": "Recepción",
-        "icon": "assets/img/6.svg"
-      },
-      {
-        "time": "04:00 PM",
-        "text": "Comida",
+        "time": "08:00 PM",
+        "text": "Pastel y fotos",
         "icon": "assets/img/7.svg"
       }
     ]
   },
   "celebration": {
-    "title": "Un día de fe y amor",
-    "text": "Acompáñanos a celebrar este momento tan importante y significativo para nuestra familia."
+    "title": "Mis 18",
+    "text": "Prepárate para una tarde increíble. Música, fotos y momentos para recordar."
   },
   "dresscode": {
     "title": "Código de Vestimenta",
@@ -132,34 +100,33 @@
     "womenTitle": "",
     "men": [],
     "women": [],
-    "note": "Te invitamos a asistir con un atuendo formal y respetuoso, acorde a la ceremonia religiosa."
+    "note": "Formal. Evita tenis, por favor ✨"
   },
   "gallery": {
-    "title": "Deseos para Karlo Giovanni",
-    "type": "wishes",
-    "items": [
-      "Que tu vida esté llena de amor y alegría.",
-      "Que nunca te falte fe ni esperanza."
+    "title": "Mi Historia en Imágenes",
+    "type": "images",
+    "images": [
+      "assets/img/1.jpeg",
+      "assets/img/2.jpeg",
+      "assets/img/3.jpeg",
+      "assets/img/4.jpeg"
     ]
   },
   "rsvp": {
     "title": "Confirmación de Asistencia",
-    "intro": "Será un honor contar con tu presencia.",
+    "intro": "Me haría muy feliz contar contigo.",
     "fields": {
-      "namePlaceholder": "Nombre completo",
-      "attendancePlaceholder": "¿Podrás acompañarnos?",
-      "attendanceOptions": [
-        "Sí asistiré",
-        "No podré asistir"
-      ],
-      "messagePlaceholder": "Mensaje o bendición",
+      "namePlaceholder": "Tu nombre",
+      "attendancePlaceholder": "¿Podrás acompañarme?",
+      "attendanceOptions": ["Sí asistiré", "No podré asistir"],
+      "messagePlaceholder": "Mensaje",
       "buttonText": "Confirmar por WhatsApp"
     },
-    "note": "Agradecemos confirmar antes del <strong>11 de marzo de 2026</strong>.",
-    "success": "Gracias por confirmar 🤍"
+    "note": "Agradezco confirmar antes del <strong>11 de marzo de 2026</strong>.",
+    "success": "¡Gracias por confirmar!"
   },
   "footer": {
-    "names": "Bautizo de Karlo Giovanni",
-    "credits": "Diseñado con amor por Shiny Maker Events"
+    "names": "Cumple 18 de Alexandra Rocha",
+    "credits": "Diseñado con amor por Shiny Maker Studio"
   }
 }

@@ -3,30 +3,31 @@
   /* =========================
      BRAND / IDENTIDAD
      ========================= */
-  --color-primary: #3b69af;     /* Lavanda principal */
-  --color-accent: #c6964d;      /* Dorado tenue (detalles finos) */
-  --color-envelope: #8aadcd;
+  --color-primary: #e8a4c4;        /* Rosa glam principal */
+  --color-accent: #d4a373;         /* Champagne suave */
+  --color-envelope: #f4c2d7;
+
   /* =========================
      BACKGROUNDS
      ========================= */
   --bg-main: #ffffff;
-  --bg-section: #ede8f3;
-  --bg-overlay: rgba(0, 0, 0, 0.35);
+  --bg-section: #faf6f8;           /* Rosa ultra claro */
+  --bg-overlay: rgba(0, 0, 0, 0.25);
 
   /* =========================
      TEXTOS
      ========================= */
-  --text-primary: #2e2e2e;
-  --text-secondary: #6f6f6f;
-  --text-muted: #9b9b9b;
+  --text-primary: #1f1f1f;
+  --text-secondary: #555555;
+  --text-muted: #8a8a8a;
   --text-inverse: #ffffff;
 
   /* =========================
      LÍNEAS & SOMBRAS
      ========================= */
-  --line-soft: #c9d8e5;
-  --shadow-soft: 0 18px 38px rgba(0, 0, 0, 0.12);
-  --shadow-light: 0 8px 20px rgba(0, 0, 0, 0.08);
+  --line-soft: #f0d6e3;
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.10);
+  --shadow-light: 0 10px 25px rgba(0, 0, 0, 0.06);
 
   /* =========================
      TIPOGRAFÍAS
@@ -38,7 +39,7 @@
   /* =========================
      ESCALA TIPOGRÁFICA
      ========================= */
-  --fs-hero: 3.5rem;
+  --fs-hero: 3.8rem;
   --fs-h1: 3rem;
   --fs-h2: 2.2rem;
   --fs-h3: 1.6rem;
@@ -63,8 +64,8 @@
   /* =========================
      BORDER RADIUS
      ========================= */
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 24px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 32px;
 
 }
